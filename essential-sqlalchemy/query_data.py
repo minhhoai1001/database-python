@@ -1,5 +1,3 @@
-from operator import and_, not_, or_
-from unittest import result
 import warnings
 from database import *
 from sqlalchemy import desc, and_, or_, not_

@@ -18,6 +18,13 @@ class Cookie(Base):
     quantity = Column(Integer())
     unit_cost = Column(Numeric(12, 2))
 
+    def __init__(self, cookie_name, cookie_recipe_url=None, cookie_sku=None, quantity=0, unit_cost=0.00):
+        self.cookie_name = cookie_name
+        self.cookie_recipe_url = cookie_recipe_url
+        self.cookie_sku = cookie_sku
+        self.quantity = quantity
+        self.unit_cost = unit_cost
+
     def __repr__(self) -> str:
         return "Cookie(cookie_name='{self.cookie_name}', " \
                     "cookie_recipe_url='{self.cookie_recipe_url}', " \
@@ -35,6 +42,12 @@ class User(Base):
     password = Column(String(25), nullable=False)
     created_on = Column(DateTime(), default=datetime.now)
     updated_on = Column(DateTime(), default=datetime.now, onupdate=datetime.now)
+
+    def __init__(self, username, email_address, phone, password):
+        self.username = username
+        self.email_address = email_address
+        self.phone = phone
+        self.password = password
 
     def __repr__(self):
         return "User(username='{self.username}', " \
